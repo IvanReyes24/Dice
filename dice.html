@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dice Game</title>
+	<script src="https://kit.fontawesome.com/46902bd23b.js" crossorigin="anonymous"></script>
+</head>
+<style>
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+
+	body{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		height: 100vh;
+	}
+
+	.dice-div{
+		height: 200px;
+		width: 200px;
+		/* display: none; */
+	}
+
+	.dice-div img{
+		height: 200px;
+		width: 200px;
+	}
+
+	.container{
+		background-color: #fefefe;
+		box-shadow: 15px 5px 1px black;
+		width: 500px;
+		height: 350px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid black;
+	}
+	h1, button{
+		margin-bottom: 15px;
+	}
+
+	button{
+		padding: 10px 30px;
+		background-color: red;
+		color: #fefefe;
+		border-radius: 10px;
+		font-size: 16px;
+		font-weight: 700;
+		border: 5px solid white;
+	}
+
+	button:hover{
+		background-color: #fefefe;
+		color: red;
+		border-color: red;
+		transition: all 0.3s ease;
+	}
+
+</style>
+<body>
+	<div class="container">
+		<div class="dice-container">
+			<h1>Dice game</h1>
+			<button type="button" id="diceRoll-btn">Roll <i class="fa-solid fa-dice"></i></button><br>
+			<div class="dice-div">
+				<img src="./src/img/dice_1.png" alt="dice">
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		let rollDice = document.getElementById("diceRoll-btn");
+		let diceDiv = document.querySelector(".dice-div")
+
+		rollDice.addEventListener("click",()=>{
+			let randNum = Math.floor(Math.random() * 6) + 1;
+			diceDiv.innerHTML = `<img src="./src/img/dice_${randNum}.png" alt="dice number ${randNum}">`;
+		})
+
+	</script>
+</body>
+</html>
